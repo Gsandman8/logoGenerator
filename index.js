@@ -32,22 +32,25 @@ const questions = [
 
 inquirer.prompt(questions).then(response => {
     let shape;
-    let y;
+    let y = 125;
+    let font = 80;
     switch(response.shape){
         case "Square" :
             shape = new Square;
             shape.setColor(response.shapeColor);
-            y=120;
             break;
         case "Triangle":
             shape = new Triangle;
             shape.setColor(response.shapeColor);
+            y=150;
+            font=60;
             break;
 
         case "Circle":
             shape = new Circle;
             shape.setColor(response.shapeColor);
             break;
+            
     }
     fs.writeFile("logo.svg", 
     `<svg version="1.1"
@@ -56,7 +59,7 @@ inquirer.prompt(questions).then(response => {
 
     ${shape.render()}
 
-    <text x="150" y="${y}" font-size="60" text-anchor="middle" fill="${response.textColor}">${response.text}</text>
+    <text x="150" y="${y}" font-size="${font}" text-anchor="middle" fill="${response.textColor}">${response.text}</text>
 
     </svg>
     `, 
