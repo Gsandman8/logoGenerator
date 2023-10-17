@@ -80,7 +80,7 @@ inquirer.prompt(questions).then(response => {
         if(err){
             console.log("There was an error :(");
         } else {
-            console.log("Created logo.svg");
+            console.log("Generated logo.svg");
         }
     })
 })
